@@ -26,14 +26,18 @@ function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
     let bookDiv = document.createElement("div");
     bookDiv.classList.add("single-book");
+    bookDiv.setAttribute("data-index", i);
     let para = document.createElement("p");
     para.classList.add("book-info");
+    para.setAttribute("data-index", i);
     let readButton = document.createElement("button");
     readButton.classList.add("read-button");
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-button");
+    deleteButton.setAttribute("data-index", i);
     para.textContent = myLibrary[i].info();
     readButton.textContent = myLibrary[i].read;
+    readButton.setAttribute("data-index", i);
     deleteButton.textContent = "delete";
     bookDisplay.appendChild(bookDiv);
     bookDiv.appendChild(para);
@@ -46,3 +50,12 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(newBook);
   displayBooks();
 }
+const deleteButtons = document.querySelectorAll(".delete-button");
+deleteButtons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    let bookDiv = document.querySelector(
+      `div[data-index="${e.target.getAttribute("data-index")}"]`
+    );
+    bookDisplay.removeChild(bookDiv);
+  });
+});
