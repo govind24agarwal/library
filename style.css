@@ -3,3 +3,55 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  width: 100vw;
+  height: 100vh;
+}
+main {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.display-scroll {
+  flex-grow: 5;
+  margin: 10px 10px;
+  display: flex;
+}
+.button-container {
+  position: relative;
+  flex-grow: 1;
+  margin: 10px 10px;
+  background-color: cadetblue;
+}
+.book-display {
+  margin: 5px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: burlywood;
+  align-content: center;
+}
+#new-book {
+  padding: 1rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.single-book {
+  display: flex;
+  margin: 2px;
+}
+.book-info {
+  flex: 6;
+}
+.read-button {
+  margin: 0 2px;
+  flex: 2;
+}
+.delete-button {
+  margin: 0 2px;
+  flex: 2;
+}
