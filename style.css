@@ -42,6 +42,10 @@ main {
 .single-book {
   display: flex;
   margin: 2px;
+  border: solid rgb(214, 159, 57) 1px;
+  padding: 5px;
+  margin: 10px;
+  box-shadow: 3px 5px rgb(214, 177, 129);
 }
 .book-info {
   flex: 6;
