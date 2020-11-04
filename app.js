@@ -59,3 +59,17 @@ deleteButtons.forEach((btn) => {
     bookDisplay.removeChild(bookDiv);
   });
 });
+
+const readButtons = document.querySelectorAll(".read-button");
+readButtons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    if (myLibrary[e.target.getAttribute("data-index")].read) {
+      myLibrary[e.target.getAttribute("data-index")].read = false;
+      e.target.textContent = "false";
+    } else {
+      myLibrary[e.target.getAttribute("data-index")].read = true;
+      e.target.textContent = "true";
+    }
+    console.table(myLibrary);
+  });
+});
