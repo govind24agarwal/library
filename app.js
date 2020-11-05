@@ -46,9 +46,8 @@ function displayBooks() {
   }
 }
 function addBookToLibrary(title, author, pages, read) {
-  const newBook = Book(title, author, pages, read);
+  const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
-  displayBooks();
 }
 const deleteButtons = document.querySelectorAll(".delete-button");
 deleteButtons.forEach((btn) => {
@@ -70,6 +69,31 @@ readButtons.forEach((btn) => {
       myLibrary[e.target.getAttribute("data-index")].read = true;
       e.target.textContent = "true";
     }
-    console.table(myLibrary);
   });
+});
+
+const form = document.querySelector(".form");
+const addBookBtn = document.querySelector("#new-book");
+addBookBtn.addEventListener("click", (e) => {
+  form.classList.add("open");
+});
+form.addEventListener("click", (e) => {
+  if (e.target.classList.contains("form")) {
+    form.classList.remove("open");
+  }
+});
+
+const submitBtn = document.querySelector("input[id='submit'");
+submitBtn.addEventListener("click", (e) => {
+  let bname = document.querySelector("input[id='bname']");
+  let bauthor = document.querySelector("input[id='bauthor']");
+  let bpage = document.querySelector("input[id='bpage']");
+  let bread = document.querySelector("input[id='bread' ]");
+  let name = bname.value;
+  let author = bauthor.value;
+  let page = bpage.value;
+  let read = false;
+  if (bread.value == "yes") read = true;
+  addBookToLibrary(name, author, page, read);
+  return false;
 });
