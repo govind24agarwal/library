@@ -49,6 +49,10 @@ function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
 }
+function removeBooksFromDisplay() {
+  bookDisplay.innerHTML = "";
+}
+//event listeners
 const deleteButtons = document.querySelectorAll(".delete-button");
 deleteButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -95,5 +99,6 @@ submitBtn.addEventListener("click", (e) => {
   let read = false;
   if (bread.value == "yes") read = true;
   addBookToLibrary(name, author, page, read);
-  return false;
+  removeBooksFromDisplay();
+  displayBooks();
 });
