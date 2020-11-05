@@ -68,11 +68,11 @@ readButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     if (myLibrary[e.target.getAttribute("data-index")].read) {
       myLibrary[e.target.getAttribute("data-index")].read = false;
-      e.target.textContent = "false";
     } else {
       myLibrary[e.target.getAttribute("data-index")].read = true;
-      e.target.textContent = "true";
     }
+    removeBooksFromDisplay();
+    displayBooks();
   });
 });
 
@@ -87,7 +87,7 @@ form.addEventListener("click", (e) => {
   }
 });
 
-const submitBtn = document.querySelector("input[id='submit'");
+const submitBtn = document.querySelector("input[value='submit'");
 submitBtn.addEventListener("click", (e) => {
   let bname = document.querySelector("input[id='bname']");
   let bauthor = document.querySelector("input[id='bauthor']");
